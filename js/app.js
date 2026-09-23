@@ -14,7 +14,7 @@ login("ana.silva@edutech.com", "123456")
 
     window.location.href = "../login/login.html";*/
 
-    if (window.location.pathname.endsWith("/index.html") ||
+   if (window.location.pathname.endsWith("/index.html") ||
     window.location.pathname.endsWith("/")) {
 
     window.location.href = "./login/login.html";
@@ -24,5 +24,4 @@ export function logout() {
     sessionStorage.clear();
 
     window.location.href = "../login/login.html";
-}
 }

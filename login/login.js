@@ -19,7 +19,8 @@ formulario.addEventListener("submit", (evento) => {
             window.location.href = "../dashboard/dashboard.html";
         })
         .catch((erro) => {
-            mensagem.textContent = erro;
+            //mensagem.textContent = erro;
+            alert(erro);
         });
 });
 
