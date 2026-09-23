@@ -14,7 +14,7 @@ formulario.addEventListener("submit", (evento) => {
 
     login(email, senha)
         .then((usuario) => {
-            console.log("Login realizado:", usuario);
+            sessionStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
             window.location.href = "../dashboard/dashboard.html";
         })
@@ -26,4 +26,3 @@ formulario.addEventListener("submit", (evento) => {
 esqueciSenha.addEventListener("click", () => {
     alert("Entre em contato com o suporte para recuperar sua senha.");
 });
-
