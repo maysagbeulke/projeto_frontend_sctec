@@ -1,6 +1,6 @@
-//window.location.href = "../login/login.html";
+window.location.href = "../login/login.html";
 
-import { login } from "./auth.js";
+/*import { login } from "./auth.js";
 
 login("ana.silva@edutech.com", "123456")
     .then((usuario) => {
@@ -8,4 +8,4 @@ login("ana.silva@edutech.com", "123456")
     })
     .catch((erro) => {
         console.error(erro);
-    });
+    });*/
