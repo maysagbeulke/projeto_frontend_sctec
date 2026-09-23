@@ -2,5 +2,8 @@
     "name": "ava-educa",
     "version": "1.0.0",
     "description": "Prototipo do AVA-EDUCA+",
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "prompt-sync": "^4.2.0"
+    }
 }
