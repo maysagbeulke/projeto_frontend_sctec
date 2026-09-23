@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color:#F2ACD3;
+    color: #26011C;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* layout principal */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* menu lateral */
+
+.sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background-color: #730639 ;
+    color: white;
+    padding: 20px;
+}
+
+/* area principal */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* cabeçalho */
+
+.header {
+    min-height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* conteudo */
+
+.content {
+    padding: 25px;
+}
+
+/* menu */
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar nav li:hover {
+    background-color:#D92588;
+}
