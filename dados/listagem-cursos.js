@@ -55,6 +55,7 @@ const cursos = [
         dataInicio: "2026-08-03",
         dataFim: "2026-10-23"
     }
+    
 ];
 
 export { cursos };
