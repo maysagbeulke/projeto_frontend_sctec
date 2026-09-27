@@ -1,19 +1,65 @@
-import { listarCursos } from "../js/cursos.js";
+import { listarCursos } from "../js/cursos.js"; // Importa a função de cursos
 
+// recupera usuario logado
 const usuarioLogado = JSON.parse(
     sessionStorage.getItem("usuarioLogado")
 );
 
-if (!usuarioLogado) {
-    window.location.href = "../login/login.html";
-}
-
+// elemento do HTML
 const nomeUsuario = document.getElementById("usuarioLogado");
-
-nomeUsuario.textContent = usuarioLogado.nome;
-
+const listaCursos = document.getElementById("listaCursos");
 const btnSair = document.getElementById("btnSair");
 
+// verifica existe usuário logado
+if (!usuarioLogado) {
+
+    window.location.href = "../login/login.html";
+
+} else {
+
+    // mostra nome usuario
+    nomeUsuario.textContent = usuarioLogado.nome;
+
+    // busca curso usuario
+    listarCursos(usuarioLogado)
+        .then((cursos) => {
+
+            // card para cada curso
+            cursos.forEach((curso) => {
+
+                const card = document.createElement("article");
+
+                card.classList.add("card");
+
+                card.innerHTML = `
+                    <h3>${curso.nomeCurso}</h3>
+
+                    <p>
+                        <strong>Data de início:</strong>
+                        ${curso.dataInicio}
+                    </p>
+
+                    <p>
+                        <strong>Data de fim:</strong>
+                        ${curso.dataFim}
+                    </p>
+                `;
+
+                listaCursos.appendChild(card);
+            });
+
+        })
+        .catch((erro) => {
+
+            // erro tela
+            listaCursos.innerHTML = `
+                <p class="mensagem-erro">${erro}</p>
+            `;
+
+        });
+}
+
+// botao sair
 btnSair.addEventListener("click", () => {
 
     sessionStorage.removeItem("usuarioLogado");
@@ -21,30 +67,3 @@ btnSair.addEventListener("click", () => {
     window.location.href = "../login/login.html";
 
 });
-
-
-const listaCursos = document.getElementById("listaCursos");
-
-listarCursos(usuarioLogado)
-    .then((cursos) => {
-
-        cursos.forEach((curso) => {
-
-            const card = document.createElement("div");
-
-            card.innerHTML = `
-                <h3>${curso.nomeCurso}</h3>
-                <p>Início: ${curso.dataInicio}</p>
-                <p>Fim: ${curso.dataFim}</p>
-            `;
-
-            listaCursos.appendChild(card);
-
-        });
-
-    })
-    .catch((erro) => {
-
-        listaCursos.textContent = erro;
-
-    });

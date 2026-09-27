@@ -7,13 +7,18 @@
 
     <title>Dashboard - AVA-EDUCA+</title>
 
+    <!-- css geral -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- css dashboard-->
+    <link rel="stylesheet" href="./dashboard.css">
 </head>
 
 <body>
 
     <div class="layout">
 
+        <!-- menu lateral -->
         <aside class="sidebar">
 
             <h2>AVA-EDUCA+</h2>
@@ -29,8 +34,11 @@
 
         </aside>
 
+
+        <!-- area principal -->
         <div class="main-content">
 
+            <!-- cabecalho -->
             <header class="header">
 
                 <h1>Dashboard</h1>
@@ -39,6 +47,8 @@
 
             </header>
 
+
+            <!-- conteudo -->
             <main class="content">
 
                 <h2>Bem-vindo ao AVA-EDUCA+!</h2>
@@ -49,6 +59,7 @@
 
                 <h2>Cursos</h2>
 
+                <!-- cursos inseridos pelo js -->
                 <div id="listaCursos"></div>
 
             </main>
@@ -57,6 +68,8 @@
 
     </div>
 
+
+    <!-- js do dashboard -->
     <script type="module" src="./dashboard.js"></script>
 
 </body>
