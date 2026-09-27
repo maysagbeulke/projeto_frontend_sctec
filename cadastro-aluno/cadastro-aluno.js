@@ -7,10 +7,49 @@ import { cadastrarAluno } from "../js/alunos.js";
 // seleciona formulario de cadastro
 const formulario = document.querySelector("#formCadastroAluno");
 
+// seleciona o campo CEP
+const campoCep = document.querySelector("#cep");
+
+// busca o endereco quando o CEP for preenchido
+campoCep.addEventListener("blur", async () => {
+
+    const cep = campoCep.value.trim();
+
+    // verifica se o CEP contem apenas numeros
+    if (isNaN(cep)) {
+        alert("O CEP deve conter apenas números.");
+        return;
+    }
+
+    // verifica se o CEP tem 8 numeros
+    if (cep.length !== 8) {
+        return;
+    }
+
+    // busca o endereco na API ViaCEP
+    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+    // transforma a resposta em JSON
+    const dados = await resposta.json();
+
+    // verifica se o CEP foi encontrado
+    if (dados.erro) {
+        alert("CEP não encontrado.");
+        return;
+    }
+
+    // preenche os dados do endereco
+    document.querySelector("#cidade").value = dados.localidade;
+    document.querySelector("#estado").value = dados.uf;
+    document.querySelector("#logradouro").value = dados.logradouro;
+    document.querySelector("#bairro").value = dados.bairro;
+
+});
+
 // detecta envio formulario
 formulario.addEventListener("submit", (evento) => {
 
-    // impedeo recarregamento da pagina
+    // impede o recarregamento da pagina
     evento.preventDefault();
 
     // pega os valores preenchidos pelo usuario
@@ -70,6 +109,29 @@ formulario.addEventListener("submit", (evento) => {
         return;
     }
 
+    // verifica se o CEP contem apenas numeros
+    if (isNaN(cep)) {
+        alert("O CEP deve conter apenas números.");
+        return;
+    }
+
+    // verifica se o CEP tem 8 numeros
+    if (cep.length !== 8) {
+        alert("O CEP deve ter 8 números.");
+        return;
+    }
+    // verifica se o numero foi preenchido
+    if (!numero) {
+       alert("Informe o número.");
+       return;
+}
+
+    // verifica se o numero contem apenas numeros
+    if (isNaN(numero)) {
+       alert("O número deve conter apenas números.");
+       return;
+}
+
     // verifica o email
     if (!email) {
         alert("Informe o e-mail.");
@@ -114,13 +176,32 @@ formulario.addEventListener("submit", (evento) => {
 
 });
 
+// recupera o usuario logado
+const usuarioLogado = JSON.parse(
+    sessionStorage.getItem("usuarioLogado")
+);
+
+// verifica se existe usuario logado
+if (!usuarioLogado) {
+
+    window.location.href = "../login/login.html";
+
+} else {
+
+    // mostra o nome do usuario
+    document.getElementById("usuarioLogado").textContent = usuarioLogado.nome;
+
+}
+
 // botao sair
 const btnSair = document.getElementById("btnSair");
 
 btnSair.addEventListener("click", () => {
 
+    // remove o usuario da sessao
     sessionStorage.removeItem("usuarioLogado");
 
+    // volta para a tela de login
     window.location.href = "../login/login.html";
 
 });
@@ -130,6 +211,7 @@ const btnDashboard = document.getElementById("btnDashboard");
 
 btnDashboard.addEventListener("click", () => {
 
+    // abre o dashboard
     window.location.href = "../dashboard/dashboard.html";
 
 });
