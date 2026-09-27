@@ -10,6 +10,7 @@ const nomeUsuario = document.getElementById("usuarioLogado");
 const listaCursos = document.getElementById("listaCursos");
 const btnSair = document.getElementById("btnSair");
 const btnCadastroAluno = document.getElementById("btnCadastroAluno");
+const btnDashboard = document.getElementById("btnDashboard");
 
 // verifica existe usuario logado
 if (!usuarioLogado) {
@@ -73,5 +74,12 @@ btnSair.addEventListener("click", () => {
 btnCadastroAluno.addEventListener("click", () => {
 
     window.location.href = "../cadastro-aluno/cadastro-aluno.html";
+
+});
+
+// abre dashboard
+btnDashboard.addEventListener("click", () => {
+
+    window.location.href = "./dashboard.html";
 
 });

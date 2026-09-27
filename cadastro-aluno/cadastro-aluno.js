@@ -113,3 +113,23 @@ formulario.addEventListener("submit", (evento) => {
         });
 
 });
+
+// botao sair
+const btnSair = document.getElementById("btnSair");
+
+btnSair.addEventListener("click", () => {
+
+    sessionStorage.removeItem("usuarioLogado");
+
+    window.location.href = "../login/login.html";
+
+});
+
+// abre dashboard
+const btnDashboard = document.getElementById("btnDashboard");
+
+btnDashboard.addEventListener("click", () => {
+
+    window.location.href = "../dashboard/dashboard.html";
+
+});
