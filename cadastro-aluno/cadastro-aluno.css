@@ -32,3 +32,41 @@
 #formCadastroAluno button:hover {
     background-color: #D92588;
 }
+/* responsividade */
+
+@media (max-width: 768px) {
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sidebar nav li {
+        flex: 1;
+        min-width: 130px;
+        text-align: center;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    #formCadastroAluno {
+        width: 100%;
+    }
+
+}

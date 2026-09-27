@@ -1,3 +1,9 @@
+// importa a classe Aluno
+import { Aluno } from "../js/Aluno.js";
+
+// importa a funçao de cadastro
+import { cadastrarAluno } from "../js/alunos.js";
+
 // seleciona formulario de cadastro
 const formulario = document.querySelector("#formCadastroAluno");
 
@@ -15,6 +21,15 @@ formulario.addEventListener("submit", (evento) => {
     const telefone = document.querySelector("#telefone").value.trim();
     const email = document.querySelector("#email").value.trim();
 
+    // pega os valores do endereco
+    const cep = document.querySelector("#cep").value.trim();
+    const cidade = document.querySelector("#cidade").value.trim();
+    const estado = document.querySelector("#estado").value.trim();
+    const logradouro = document.querySelector("#logradouro").value.trim();
+    const numero = document.querySelector("#numero").value.trim();
+    const complemento = document.querySelector("#complemento").value.trim();
+    const bairro = document.querySelector("#bairro").value.trim();
+
     // verifica o nome
     if (nome.length < 4 || nome.length > 80) {
         alert("O nome deve ter entre 4 e 80 caracteres.");
@@ -27,21 +42,21 @@ formulario.addEventListener("submit", (evento) => {
         return;
     }
 
-   // verifica a data de nascimento usando Moment.js
-const dataValida = moment(
-    dataNascimento,
-    "DD/MM/YYYY",
-    true
-);
+    // verifica a data de nascimento usando Moment.js
+    const dataValida = moment(
+        dataNascimento,
+        "DD/MM/YYYY",
+        true
+    );
 
-if (
-    !dataValida.isValid() ||
-    dataValida.isSameOrBefore(moment("01/01/1900", "DD/MM/YYYY"), "day") ||
-    dataValida.isSameOrAfter(moment(), "day")
-) {
-    alert("Informe uma data de nascimento válida.");
-    return;
-}
+    if (
+        !dataValida.isValid() ||
+        dataValida.isSameOrBefore(moment("01/01/1900", "DD/MM/YYYY"), "day") ||
+        dataValida.isSameOrAfter(moment(), "day")
+    ) {
+        alert("Informe uma data de nascimento válida.");
+        return;
+    }
 
     // verifica se o CPF contem apenas numeros
     if (isNaN(cpf)) {
@@ -61,6 +76,40 @@ if (
         return;
     }
 
-    // se todas as validaçoes forem aprovadas
-    alert("Dados validados com sucesso!");
+    // cria um novo aluno
+    const aluno = new Aluno(
+        null,
+        nome,
+        genero,
+        dataNascimento,
+        cpf,
+        telefone,
+        email,
+        cep,
+        cidade,
+        estado,
+        logradouro,
+        numero,
+        complemento,
+        bairro
+    );
+
+    // cadastra o aluno
+    cadastrarAluno(aluno)
+        .then((mensagem) => {
+
+            // mostra mensagem de sucesso
+            alert(mensagem);
+
+            // limpa o formulario
+            formulario.reset();
+
+        })
+        .catch((erro) => {
+
+            // mostra mensagem de erro
+            alert(erro);
+
+        });
+
 });
