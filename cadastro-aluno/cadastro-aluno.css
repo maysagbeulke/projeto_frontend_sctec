@@ -1,0 +1,34 @@
+/* formulario cadastro */
+
+#formCadastroAluno {
+    max-width: 700px;
+    margin-top: 20px;
+    display: grid;
+    gap: 10px;
+}
+
+#formCadastroAluno input,
+#formCadastroAluno select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#formCadastroAluno h3 {
+    margin-top: 15px;
+    color: #730639;
+}
+
+#formCadastroAluno button {
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #730639;
+    color: white;
+    cursor: pointer;
+}
+
+#formCadastroAluno button:hover {
+    background-color: #D92588;
+}

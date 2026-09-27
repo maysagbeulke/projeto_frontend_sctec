@@ -1,4 +1,4 @@
-import { listarCursos } from "../js/cursos.js"; // Importa a função de cursos
+import { listarCursos } from "../js/cursos.js";
 
 // recupera usuario logado
 const usuarioLogado = JSON.parse(
@@ -9,8 +9,9 @@ const usuarioLogado = JSON.parse(
 const nomeUsuario = document.getElementById("usuarioLogado");
 const listaCursos = document.getElementById("listaCursos");
 const btnSair = document.getElementById("btnSair");
+const btnCadastroAluno = document.getElementById("btnCadastroAluno");
 
-// verifica existe usuário logado
+// verifica existe usuario logado
 if (!usuarioLogado) {
 
     window.location.href = "../login/login.html";
@@ -65,5 +66,12 @@ btnSair.addEventListener("click", () => {
     sessionStorage.removeItem("usuarioLogado");
 
     window.location.href = "../login/login.html";
+
+});
+
+// abre cadastro aluno
+btnCadastroAluno.addEventListener("click", () => {
+
+    window.location.href = "../cadastro-aluno/cadastro-aluno.html";
 
 });
