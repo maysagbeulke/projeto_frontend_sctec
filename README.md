@@ -71,19 +71,22 @@ ava-educa/
 
 ## Como executar o projeto
 
-* Baixe o projeto em uma pasta em seu computador;
-* Vá até a pasta do projeto;
-
+* Crie uma pasta do projeto;
+* Abra a pasta com VSCode;
+* No VSCode, abra um terminal;
+* Para baixar o projeto, execute o comando: git clone https://github.com/maysagbeulke/projeto_frontend_sctec.git .
+* Execute o comando: npx serve . 
+* Em um navegador, acesse a url: http://localhost:3000
 * Irá aprarecer a tela de login;
 * Exemplo de um usuário disponível para teste: E-mail: ana.silva@edutech.com , Senha: 123456
 * Depois do login, o sistema direcionará para o Dashboard.
 * Ali irá aparecer os cursos disponíveis para o usuário, caso não tenha nenhum, aparecerá na tela "Não há cursos cadastrados para esse usuário".
-* Tem a opção cadastro de aluno, ao qual irá aparecer o formulário de catastro
+* Tem a opção cadastro de aluno, ao qual irá aparecer o formulário de cadastro
 
 ## Melhorias futuras
 
 Melhorias que podem ser aplicadas futuramente:
 
-* Implementar um banco de dados para armazenar os alunos de forma permanente;
+* Implementar um banco de dados para armazenar os dados de forma permanente;
 * Criar uma página específica para listagem dos alunos;
 * Melhorar a interface visual do sistema;
