@@ -3,10 +3,16 @@ import { alunos } from "../dados/listagem-alunos.js";
 // cadastra um novo aluno
 export function cadastrarAluno(aluno) {
 
-//promise para retornar o resultado
+    // promise para retornar o resultado
     return new Promise((resolve, reject) => {
 
-        //novo ID
+        // verifica se o aluno foi informado
+        if (!aluno) {
+            reject("Erro ao cadastrar o aluno");
+            return;
+        }
+
+        // novo ID
         const novoId = alunos.length + 1;
 
         // adiciona o ID ao aluno
