@@ -29,6 +29,7 @@ O projeto busca facilitar a organização e o acesso às informações acadêmic
 
 ## Estrutura do projeto
 
+```text
 ava-educa/
 │
 ├── login/
@@ -61,13 +62,13 @@ ava-educa/
 │   ├── listagem-cursos.js
 │   └── listagem-alunos.js
 │
-└── assets/
+├── assets/
 │   ├── images/
 │   └── icons/
-│ 
+│
 ├── index.html
-├── README.md
-
+└── README.md
+```
 
 ## Como executar o projeto
 
