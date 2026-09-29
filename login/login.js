@@ -1,5 +1,3 @@
-//console.log("Página de login carregada!");
-
 import { login } from "../js/auth.js";
 //seleciona elementos formulario
 const formulario = document.querySelector("#loginForm");
